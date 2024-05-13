@@ -165,6 +165,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Bloga ivestis");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -297,6 +299,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Bloga ivestis");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -344,6 +348,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Bloga ivestis");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
 
@@ -381,6 +387,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Bloga ivestis");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -562,6 +570,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Bloga ivestis");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -645,6 +655,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Bloga ivestis");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
 
@@ -749,6 +761,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Bloga ivestis");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
         }
@@ -779,6 +793,8 @@ public class DatabaseManager implements DatabaseManagerInterface{
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Bloga ivestis");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -872,11 +888,13 @@ public class DatabaseManager implements DatabaseManagerInterface{
         try{
             pasirink = scanner.nextInt();
             scanner.nextLine();
-            return pasirink;
+            if(pasirink > 0 || pasirink < 4){
+                return pasirink;
+            }
         }catch (InputMismatchException e){
             scanner.next();
             System.out.println("Bloga ivestis");
-            sekantisVeiksmas();
+            return sekantisVeiksmas();
         }
 
         return pasirink;
